@@ -67,8 +67,9 @@
                                 <td data-th-text="${task.status}">In progress</td>
                                 <td>
                                     <a class="btn btn-danger" th:href="@{'/deleteTask/'+${task.id}}">Delete</a>
-                                    <a class="btn btn-success ms-1" th:href="@{'/finishTask/'+${task.id}}">Finished</a>
+                                    <a class="btn btn-success ms-1 mt-1 mt-md-0" th:href="@{'/finishTask/'+${task.id}}">Finished</a>
                                 </td>
+
                             </tr>
                             </tbody>
 
