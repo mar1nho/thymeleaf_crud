@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Register</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <form class="p-3 mt-3" th:action="@{/logoutRegister}" method="post">
+        <button class="close backLogin" type="submit" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </form>
+    <form class="p-3 mt-3 formRegister" th:action="@{/register}" th:object="${registerForm}" method="post">
+        <input type="hidden" th:field="*{id}" name="id"/>
+        <div class="text-center mt-4 name">
+            REGISTER
+        </div>
+        <p th:if="${usernameInUse}" class="error">Username already in use.</p>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user">USERNAME</span>
+            <input type="text" name="username" id="username" placeholder="Username" style="text-align: center" autofocus="autofocus" th:field="*{username}">
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key">PASSWORD</span>
+            <input type="password" name="password" id="password" placeholder="Password" style="text-align: center" th:field="*{password}">
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key">DISPLAY NAME</span>
+            <input type="text" name="displayname" id="displayname" placeholder="Name to show to people" style="text-align: center" th:field="*{displayname}">
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <label for="language" class="fas fa-key">LANGUAGE</label>
+            <select name="language" id="language" style="text-align: center" th:field="*{language}">
+                <option value="EN-US">English (US)</option>
+                <option value="PT-BR">Português (BR)</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key">KEYWORD</span>
+            <input type="text" name="keyWord" id="keyWord" placeholder="Keyword to remember your password" style="text-align: center ;font-size: smaller;" th:field="*{keyWord}">
+        </div>
+
+
+        <button class="btn mt-3">Register</button>
+    </form>
+
+</div>
+</body>
+</html>

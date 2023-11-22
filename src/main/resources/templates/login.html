@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div  class="loginForm">
+            <div class="logo">
+                <img src="https://img.freepik.com/premium-vector/purple-circle-with-white-person-icon_876006-6.jpg" alt="https://as1.ftcdn.net/v2/jpg/02/31/96/18/1000_F_231961808_PCdRUb4TcZJSZ6Mu046qQSJjAyqBliO0.jpg">
+            </div>
+            <div class="text-center mt-4 name">
+                Thymeleaf TO-DO List
+            </div>
+            <form class="p-3 mt-3" th:action="@{/login}" th:object="${loginForm}" method="post">
+                <p th:if="${invalidCredentials}" class="error invalidCredentials">Username or Password is wrong.</p>
+                <div class="form-field d-flex align-items-center">
+                    <span class="far fa-user"></span>
+                    <input type="text" name="username" id="username" placeholder="Username" style="text-align: center" autofocus="autofocus">
+                </div>
+                <div class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input type="password" name="password" id="password" placeholder="Password" style="text-align: center">
+                </div>
+                <button class="register text-center" style="margin-right: 36px">Login</button>
+            </form>
+            <form th:action="@{/register}">
+                <div class="text-center fs-6" style="margin-top: 20px; width: 250px">
+                    <button type="submit" class="register text-center">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
